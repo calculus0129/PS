@@ -1,0 +1,1 @@
+c:\Users\ryanb\Documents\GitHub\PS\BOJ\Rust\b1790_num-sequential-write-2\target\debug\b1790_num-sequential-write-2.exe: c:\Users\ryanb\Documents\GitHub\PS\BOJ\Rust\b1790_num-sequential-write-2\src\main.rs

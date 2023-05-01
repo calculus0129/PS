@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'b2738_matrix-addition'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=b2738_matrix-addition",
+                    "--package=b2738_matrix-addition"
+                ],
+                "filter": {
+                    "name": "b2738_matrix-addition",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'b2738_matrix-addition'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=b2738_matrix-addition",
+                    "--package=b2738_matrix-addition"
+                ],
+                "filter": {
+                    "name": "b2738_matrix-addition",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+C:\Users\ryanb\Documents\GitHub\PS\BOJ\Competitions\2023_Sungungwan-Programming-Open-Contest\A_increasing-array\target\debug\A_increasing-array.exe: C:\Users\ryanb\Documents\GitHub\PS\BOJ\Competitions\2023_Sungungwan-Programming-Open-Contest\A_increasing-array\src\main.rs

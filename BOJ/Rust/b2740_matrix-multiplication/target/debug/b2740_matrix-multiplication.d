@@ -1,0 +1,1 @@
+C:\Users\ryanb\Documents\GitHub\PS\BOJ\Rust\b2740_matrix-multiplication\target\debug\b2740_matrix-multiplication.exe: C:\Users\ryanb\Documents\GitHub\PS\BOJ\Rust\b2740_matrix-multiplication\src\main.rs

@@ -1,0 +1,1 @@
+C:\Users\ryanb\Documents\GitHub\PS\BOJ\Rust\b14492_bool-matrix-boolmultiplication\target\debug\b14492_bool-matrix-boolmultiplication.exe: C:\Users\ryanb\Documents\GitHub\PS\BOJ\Rust\b14492_bool-matrix-boolmultiplication\src\main.rs
