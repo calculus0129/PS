@@ -10,7 +10,8 @@ public:
 };
 
 myset& myset::operator+=(myset &other) {
-    if(this==&other) return *this;
+    //if(s==other.s) return *this;
+    if(s->begin()==s.other->begin()) return *this;
     s->insert(s->end(), other.s->begin(), other.s->end());
     delete other.s;
     other.s = s;
