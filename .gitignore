@@ -1,2 +1,8 @@
 #BOJ/C++/.vscode/c_cpp_properties.json
 #BOJ/C++/.vscode/settings.json
+*.json
+*.TAG
+*.timestamp
+*.o
+*.TAG
+*.exe
