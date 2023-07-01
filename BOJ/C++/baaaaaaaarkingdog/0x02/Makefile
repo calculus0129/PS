@@ -1,6 +1,6 @@
 #Makefile For Windows
 #Refer to https://regexone.com/lesson/wildcards_dot
-BOJ_NUM=2309# e.g. 1000
+BOJ_NUM=10093# e.g. 1000
 DEPS=$(wildcard b$(BOJ_NUM)[^0-9]*.cc) # .cc
 OBJ=$(patsubst %.cc,%.o,$(DEPS))
 pgm:	$(OBJ)
