@@ -7,6 +7,7 @@ int main() {
         cin >> arr[i];
         sum+=arr[i];
     }
+    sort(arr, arr+9);
     while(sum!=*p1+*p2) {
         if(sum<*p1+*p2) p2--;
         else p1++;
