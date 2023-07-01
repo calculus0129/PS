@@ -1,6 +1,6 @@
 #Makefile For Windows
 #Refer to https://regexone.com/lesson/wildcards_dot
-BOJ_NUM=1267# e.g. 1000
+BOJ_NUM=10804# e.g. 1000
 DEPS=$(wildcard b$(BOJ_NUM)[^0-9]*.cc) # .cc
 OBJ=$(patsubst %.cc,%.o,$(DEPS))
 pgm:	$(OBJ)
@@ -10,3 +10,4 @@ pgm:	$(OBJ)
 #$(wildcard 0-9+):
 #	BOJ_NUM=$@
 #	make pgm
+# g++ -Wall -lm -O2 -static -std=gnu++17 -o pgm b10804*.cc -DONLINE_JUDGE -DBOJ
