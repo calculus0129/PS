@@ -8,3 +8,8 @@
 *.exe
 *.rmeta
 .*
+*.pdb
+*.d
+*.bin
+incremental/
+#*/debug/incremental
