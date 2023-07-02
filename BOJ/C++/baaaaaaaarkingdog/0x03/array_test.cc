@@ -8,6 +8,14 @@ void insert(int idx, int num, int arr[], int& len){
     arr[idx]=num;
     ++len;
 }
+/* // Official Solution
+void insert(int idx, int num, int arr[], int& len){
+  for(int i = len; i > idx; i--)
+    arr[i] = arr[i-1];
+  arr[idx] = num;
+  len++;
+}
+*/
 
 void erase(int idx, int arr[], int& len){
     for(int i=idx;i<len-1;++i) {
@@ -15,6 +23,14 @@ void erase(int idx, int arr[], int& len){
     }
     --len;
 }
+
+/* // Official Solution
+void erase(int idx, int arr[], int& len){
+  len--;
+  for(int i = idx; i < len; i++)
+    arr[i] = arr[i+1];
+}
+*/
 
 void printArr(int arr[], int& len){
   for(int i = 0; i < len; i++) cout << arr[i] << ' ';
