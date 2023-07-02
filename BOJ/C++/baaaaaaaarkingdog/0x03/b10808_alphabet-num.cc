@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-int arr[26];
 int main() {
+    int arr[26];
+    fill(arr, arr+26, 0);
     string s;
     cin >> s;
     for(char c: s) {
