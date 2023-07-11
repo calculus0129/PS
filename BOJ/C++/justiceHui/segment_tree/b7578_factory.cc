@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-const size_t SIZE = 1<<18;
+const size_t SIZE = 1<<19;
 int segtree[SIZE<<1];
 
 int sum(int l, int r, int start=0, int end=SIZE-1, int node=1) {
@@ -11,9 +11,8 @@ int sum(int l, int r, int start=0, int end=SIZE-1, int node=1) {
 
 void update(int idx, int v) {
     int node = idx+SIZE, dif = v-segtree[node];
-    if(dif) do {
-        segtree[node]+=dif;
-    } while(node>>=1);
+    if(dif) do segtree[node]+=dif;
+    while(node>>=1);
 }
 
 int main() {
@@ -21,7 +20,7 @@ int main() {
     int n;
     cin >> n;
     int a, arr[SIZE];
-    size_t ans;
+    size_t ans=0;
     unordered_map<int, int> mp;
     
     for(int i=0;i<n;++i) cin >> arr[i];
