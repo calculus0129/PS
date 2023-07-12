@@ -1,5 +1,5 @@
 #Makefile For Windows
-BOJ_NUM=7578
+BOJ_NUM=2517
 DEPS=$(wildcard b$(BOJ_NUM)[^0-9]*.cc)# .cc
 OBJ=$(patsubst %.cc,%.o,$(DEPS))
 pgm:	$(OBJ)
