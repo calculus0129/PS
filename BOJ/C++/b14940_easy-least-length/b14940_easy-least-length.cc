@@ -14,20 +14,20 @@ int dir[][2] = {
 
 void bfs_all(int sx, int sy) {
     queue<p> q, tmp;
-    p t;
-    int cnt=0, x, y, nx, ny;
+    int cnt=0, x, y, nx, ny, i;
     q.push({sx, sy});
+    visited[sx][sy] = 1;
     while(!q.empty()) {
         swap(q, tmp);
         while(!tmp.empty()) {
-            t = tmp.front(); tmp.pop();
-            x = t.first, y = t.second;
+            x = tmp.front().first, y = tmp.front().second; tmp.pop();
             arr[x][y] = cnt;
-            visited[x][y] = 1;
-            for(auto i: dir) {
-                nx = x + i[0], ny = y + i[1];
-                if(nx<0 || ny<0 || nx>=m || ny >= n || arr[nx][ny]==0) continue;
-                q.push({nx, ny});
+            for(i=0;i<4;++i) {
+                nx = x + dir[i][0], ny = y + dir[i][1];
+                if(nx>=0 && nx<m && ny>=0 && ny<n && !visited[nx][ny] && arr[nx][ny]) {
+                    q.push({nx, ny});
+                    visited[nx][ny] = 1;
+                }
             }
         }
         ++cnt;
