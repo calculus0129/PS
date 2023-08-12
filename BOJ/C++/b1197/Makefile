@@ -1,6 +1,6 @@
 #Makefile For Windows
-DEPS=b1197.cc# .cc
+DEPS=b1197-2.cc# .cc
 OBJ=$(patsubst %.cc,%.o,$(DEPS))
 pgm:	$(OBJ)
-	g++ -Wall -lm -O2 -static -std=gnu++14 -o $@ $^ -DONLINE_JUDGE -DBOJ
+	g++ -Wall -lm -O2 -static -std=gnu++17 -o $@ $^ -DONLINE_JUDGE -DBOJ
 	del $^
