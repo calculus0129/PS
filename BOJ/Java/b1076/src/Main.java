@@ -104,6 +104,6 @@ public class Main {
                 break;
         }
         System.out.print(b);
-        while(a-->0) System.out.print("0");
+        while(b!=0 && a-->0) System.out.print("0");
     }
 }
