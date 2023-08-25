@@ -15,12 +15,12 @@ public class Main {
         for(int i=1;i<=n;++i) arr[i] = Integer.parseInt(s[i-1]) + arr[i-1];
         int i=0, j=1, ans=0;
         while(i<n) {
-            if(arr[j]-arr[i] == sum) {
+            if(arr[j]-arr[i] >= sum) {
                 if(ans == 0 || j-i<ans) ans = j-i;
-                if(j<n) ++j;
-                else ++i;
+                if(i<j) ++i;
+                else ++j;
             }
-            else if(j==n || arr[j]-arr[i] > sum) {
+            else if(j==n) {
                 ++i;
             }
             else {
