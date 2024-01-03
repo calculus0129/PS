@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class b1707 {
     static int v;
     static List<Integer>[] lists = new List[20001];
     static boolean[] color = new boolean[20001];
