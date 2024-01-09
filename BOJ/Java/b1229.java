@@ -6,7 +6,7 @@ import java.io.BufferedWriter;
 
 import static java.lang.Integer.min;
 
-public class Main {
+public class b1229 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static int yookgaksu[] = new int[1000001];

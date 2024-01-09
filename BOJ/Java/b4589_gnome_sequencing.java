@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Main {
+public class b4589_gnome_sequencing {
     public static void main(String[] args) {
         System.out.println("Gnomes:");
         Scanner sc = new Scanner(System.in);

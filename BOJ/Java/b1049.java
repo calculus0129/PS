@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class b1049 {
     static int m, n;
     static int[] arr = new int[3];
     static Scanner sc = new Scanner(System.in);

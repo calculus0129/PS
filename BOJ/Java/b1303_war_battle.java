@@ -2,7 +2,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class b1303_war_battle {
     public static int m, n, cnt;
     public static int ans[] = new int[2];
     public static Scanner sc = new Scanner(System.in);
