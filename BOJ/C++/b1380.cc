@@ -10,7 +10,7 @@ int main() {
         char c;
 	    cin.ignore(); // 입력 버퍼 비우기
         for(int i=1;i<=n;++i) {
-            getline(cin, stu[i]);
+            getline(cin, stu[i]); // <string> getline(istream, string) or cin.getline(char*, int size, delim) nyum.
             sum += i<<1;
         }
         for(int i=0, a;i<2*n-1;++i) {
