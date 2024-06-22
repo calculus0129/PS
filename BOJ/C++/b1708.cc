@@ -50,7 +50,7 @@ void work() {
         Point s1, s2;
         do {
             s1 = stk.top(); stk.pop(); s2 = stk.top();
-        } while(ccw(s2, s1, arr[i])<=0);
+        } while(ccw(s2, s1, arr[i])<=0); // alternatively 'for my purpose', we may put || stk.empty().
         stk.push(s1);
         stk.push(arr[i]);
     }
