@@ -16,9 +16,28 @@ int Answer, n;
 
 int arr[505050];
 vector<bool> brr;
-unordered_set<vector<bool>> s;
+unordered_set<size_t> s;
 
 typedef long long ll;
+
+const size_t BASE = 31;
+const size_t MOD = 1e9 + 7;
+
+// Compute the initial hash of the deque
+size_t compute_hash(const deque<bool>& d) {
+    size_t hash = 0;
+    for (bool b : d) {
+        hash = (hash * BASE + (b ? 1 : 0)) % MOD;
+    }
+    return hash;
+}
+
+// Update the hash for the deque after a rotation
+size_t roll_hash(size_t current_hash, bool front, bool back, size_t base_power) {
+    current_hash = (current_hash + (MOD - (front ? base_power : 0)) % MOD) % MOD; // Remove old front
+    current_hash = (current_hash * BASE + (back ? 1 : 0)) % MOD; // Add new back
+    return current_hash;
+}
 
 bool input() {
     s.clear();
@@ -33,6 +52,11 @@ bool input() {
         arr[i] = a;
         sum += a;
     }
+    // cout << "Input result: ";
+    // for(int i=0;i<n;++i) {
+    //     cout << arr[i] << ' ';
+    // }
+    // cout << '\n';
     return sum<n;
 }
 
@@ -44,13 +68,36 @@ void preprocess() {
             brr[i]=true;
         }
     }
+    // cout << "preprocess result: ";
+    // for(int i=0;i<n;++i) {
+    //     cout << (brr[i]?1:0) << ' ';
+    // }
+    // cout << '\n';
 }
 
 void work() {
-    for(int i=0;i<n;++i) {
-        brr.push_back(brr.front());
-        brr.erase(brr.begin());
-        s.insert(brr);
+    deque<bool> deq(brr.begin(), brr.end());
+
+    size_t base_power=1;
+    for(int i=0;i<n-1;++i) base_power = (base_power * BASE) % MOD;
+
+    size_t deqHashVal = compute_hash(deq);
+    s.insert(deqHashVal);
+
+    // cout << "Initial deque and hash: ";
+    // for (bool b : deq) cout << (b ? 1 : 0) << ' ';
+    // cout << "Hash: " << deqHashVal << '\n';
+
+    for(int i=1;i<n;++i) {
+        bool f = deq.front();
+        deq.pop_front();
+        deq.push_back(f);
+        deqHashVal=roll_hash(deqHashVal, f, f, base_power);
+        s.insert(deqHashVal);
+
+        // cout << "After rotation " << i << ": ";
+        // for (bool b : deq) cout << (b ? 1 : 0) << ' ';
+        // cout << "Hash: " << deqHashVal << '\n';
     }
     Answer=s.size();
 }
@@ -60,7 +107,7 @@ int main(int argc, char** argv)
     setbuf(stdout, NULL);
     cin.tie(NULL); ios_base::sync_with_stdio(false);
 	int T, test_case;
-    s.rehash(500001);
+    s.rehash(500001); // This prevents in average the rehashing O(n) by .
 	/*
 	   The freopen function below opens input.txt file in read only mode, and afterward,
 	   the program will read from input.txt file instead of standard(keyboard) input.
@@ -90,8 +137,8 @@ int main(int argc, char** argv)
         }
 		
 		// Print the answer to standard output(screen).
-		cout << "Case #" << test_case+1 << endl;
-		cout << Answer << endl;
+		cout << "Case #" << test_case+1 << '\n';
+		cout << Answer << '\n';
 	}
 
 	return 0;//Your program should return 0 on normal termination.
