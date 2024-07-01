@@ -24,7 +24,7 @@ const size_t BASE = 31;
 const size_t MOD = 1e9 + 7;
 
 // Compute the initial hash of the deque
-size_t compute_hash(const deque<bool>& d) {
+size_t compute_hash(const vector<bool>& d) {
     size_t hash = 0;
     for (bool b : d) {
         hash = (hash * BASE + (b ? 1 : 0)) % MOD;
@@ -35,7 +35,7 @@ size_t compute_hash(const deque<bool>& d) {
 // Update the hash for the deque after a rotation
 size_t roll_hash(size_t current_hash, bool front, bool back, size_t base_power) {
     current_hash = (current_hash + (MOD - (front ? base_power : 0)) % MOD) % MOD; // Remove old front
-    current_hash = (current_hash * BASE + (back ? 1 : 0)) % MOD; // Add new back
+    current_hash = ((current_hash * BASE) % MOD + (back ? 1 : 0)) % MOD; // Add new back
     return current_hash;
 }
 
@@ -76,25 +76,19 @@ void preprocess() {
 }
 
 void work() {
-    deque<bool> deq(brr.begin(), brr.end());
-
     size_t base_power=1;
     for(int i=0;i<n-1;++i) base_power = (base_power * BASE) % MOD;
 
-    size_t deqHashVal = compute_hash(deq);
+    size_t deqHashVal = compute_hash(brr);
     s.insert(deqHashVal);
 
     // cout << "Initial deque and hash: ";
     // for (bool b : deq) cout << (b ? 1 : 0) << ' ';
     // cout << "Hash: " << deqHashVal << '\n';
 
-    for(int i=1;i<n;++i) {
-        bool f = deq.front();
-        deq.pop_front();
-        deq.push_back(f);
-        deqHashVal=roll_hash(deqHashVal, f, f, base_power);
+    for(int i=0;i<n-1;++i) {
+        deqHashVal=roll_hash(deqHashVal, brr[i], brr[i], base_power);
         s.insert(deqHashVal);
-
         // cout << "After rotation " << i << ": ";
         // for (bool b : deq) cout << (b ? 1 : 0) << ' ';
         // cout << "Hash: " << deqHashVal << '\n';
@@ -107,7 +101,7 @@ int main(int argc, char** argv)
     setbuf(stdout, NULL);
     cin.tie(NULL); ios_base::sync_with_stdio(false);
 	int T, test_case;
-    s.rehash(500001); // This prevents in average the rehashing O(n) by .
+    s.rehash(500001); // This prevents in average the number of rehashing (O(n)).
 	/*
 	   The freopen function below opens input.txt file in read only mode, and afterward,
 	   the program will read from input.txt file instead of standard(keyboard) input.
