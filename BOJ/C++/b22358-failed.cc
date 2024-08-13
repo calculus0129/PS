@@ -4,7 +4,7 @@
 #define BEGIN(x) x.begin()
 #define END(x) x.end()
 #define ALL(x) BEGIN(x), END(x)
-using namespace std;
+using namespace std; 
 
 struct Edge {
     int from, to, t;
