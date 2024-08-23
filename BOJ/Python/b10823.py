@@ -1,0 +1,1 @@
+print(eval(open(0).read().replace('\n','').replace(',','+')))
