@@ -1,0 +1,15 @@
+{
+    "C_Cpp.default.compilerPath": "\\\\wsl.localhost\\Ubuntu\\home\\tyrone\\github\\PS\\BOJ\\Competitions\\2024_LGCPC\\PlayGround\\make.sh",
+    "files.associations": {
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "any": "cpp",
+        "system_error": "cpp"
+    }
+}

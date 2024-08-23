@@ -1,0 +1,9 @@
+A Kruskal + alpha
+B DFS -> bipartite partitioning
+C 포함-배제?
+D 구현 + ?
+E 브루트포스 + ?
+F Flow Network (최고점수 받으려면 Dinic 이상 필요, or...??, Edmonds-Karp!)
+G AdHoc/Math?
+H SCC+TreeDP(+DFS)
+
