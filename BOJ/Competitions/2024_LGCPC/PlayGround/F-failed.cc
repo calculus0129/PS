@@ -14,8 +14,8 @@ struct ford_fulkerson {
     // 10004: sink
     const int n;
     unordered_map<int,int> cap[10005], flow[10005];
-    set<int> g[10005];
-    vector<int> wg[10005];
+    vector<int> g[10005], wg[10005];
+    bool visited[10005];
     label labels[10005];
     ford_fulkerson(int n) : n(n) {
         cap[0].rehash(10005);
@@ -28,29 +28,41 @@ struct ford_fulkerson {
         }
     }
     void addEdge(int a, int b, int c) {
-        g[a].insert(b);
+        g[a].push_back(b);
         wg[a].push_back(b);
         wg[b].push_back(a);
         cap[a][b] = c;
     }
 
     int dfs(int a, int z) {
+        visited[a] = true;
+        // cout << "DFS at node " << a << " with flow " << z << endl;
         if(a == 10004) return z;
-        for(int b: wg[a]) if(!labels[b].z && cap[a][b] > flow[a][b]) {
-            labels[b] = {true, a, min(labels[a].z, cap[a][b] - flow[a][b])};
-            int df = dfs(b, labels[b].z);
-            if(df) return df;
+        for(int b: wg[a]) if(!visited[b]) {
+            // cout << "  Exploring edge from " << a << " to " << b << endl;
+            if(cap[a][b] > flow[a][b]) {
+                labels[b] = {true, a, min(labels[a].z, cap[a][b] - flow[a][b])};
+                int df = dfs(b, labels[b].z);
+                if(df) return df;
+            } else if(flow[b][a] > 0) {
+                labels[b] = {false, a, min(labels[a].z, flow[b][a])};
+                int df = dfs(b, labels[b].z);
+                if(df) return df;
+            }
         }
         return 0;
     }
     // returns if there is an augmenting path
     bool labelandscan() {
         memset(labels, 0, sizeof(labels));
+        memset(visited, 0, sizeof(visited));
         labels[0] = {false, -1, 0x7fffffff};
-        return dfs(0, -1);
+        visited[0] = true;
+        return dfs(0, INT_MAX);
     }
     int augmentflow() {
         int z = labels[10004].z;
+        // cout << "add flow: " << z << '\n';
         for(int x = 10004;x;x = labels[x].from) {
             if(labels[x].plus) {
                 flow[labels[x].from][x] += z;
