@@ -1,0 +1,23 @@
+# Ignore all files (e.g. without an extension (possible executables))
+# *
+
+# Exclude directories (so that only files are ignored, not folders)
+# !*/
+# !makefile
+# !Makefile
+
+# Exclude common source files or files you want to track (e.g., .c, .cpp, .h)
+# !*.c
+# !*.cc
+# !*.cpp
+# !*.h
+# !*.rs
+# !*.sh
+# !*.java
+# !*.py
+
+# Ignore all object files
+*.o
+
+# Ignore program called pgm
+**/pgm
